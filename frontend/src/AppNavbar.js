@@ -34,7 +34,16 @@ function AppNavbar() {
                     </NavItem>
                 </>
             )
-        }        
+        }  
+        if(role=="PLAYER"){
+            adminLinks = (
+                <>
+                <NavItem>
+            <NavLink style={{ color: "white" }} tag={Link} to="/achievements">Achievements</NavLink>
+            </NavItem>
+                </>
+            )
+        }      
     })
 
     if (!jwt) {

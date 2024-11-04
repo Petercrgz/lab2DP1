@@ -13,7 +13,8 @@ import tokenService from "./services/token.service";
 import UserListAdmin from "./admin/users/UserListAdmin";
 import UserEditAdmin from "./admin/users/UserEditAdmin";
 import SwaggerDocs from "./public/swagger";
-
+import AchievementList from "./achievements/achievementList";
+import AchievementEdit from "./achievements/achievementEdit";
 function ErrorFallback({ error, resetErrorBoundary }) {
   return (
     <div role="alert">
@@ -52,7 +53,10 @@ function App() {
     if (role === "PLAYER") {
       ownerRoutes = (
         <>
-          
+           <Route path="/achievements" exact={true} element={<PrivateRoute><AchievementList/></PrivateRoute>} />
+          <Route path="/achievements/new" exact={true} element={<PrivateRoute><AchievementEdit/></PrivateRoute>} />
+          <Route path="/achievements/:achievementId" exact={true} element={<PrivateRoute><AchievementEdit
+            /></PrivateRoute>} ></Route>
         </>)
     }    
   })
